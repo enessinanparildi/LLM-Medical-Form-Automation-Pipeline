@@ -18,7 +18,6 @@ def process_pdf(reader):
     PUSHBUTTON_FLAG = 1 << 16
 
     fields = reader.get_fields()
-    fields_processed = []
     field_raw_data = []
     field_json_data = dict()
 
@@ -31,9 +30,6 @@ def process_pdf(reader):
 
         data_dict = {}
         if field_type == '/Tx':
-            print(f"TEXT FIELD [{actual_name}]: {value}")
-
-            fields_processed.append(f"TEXT FIELD [{actual_name,  name_}]: {value}")
 
             data_dict["name"] = actual_name + " , " + field.get("/T").strip().lower()
             data_dict["field_type"] = "text"
@@ -56,9 +52,6 @@ def process_pdf(reader):
                 is_ticked = value != "/Off" and value is not None
                 status = "Ticked" if is_ticked else "Empty"
 
-                print(f"TICK BOX   [{actual_name}]: {status} (Raw value: {value})")
-
-                fields_processed.append(f"TICK BOX   [{actual_name,  name}]: {status} (Raw value: {value})")
 
                 data_dict["name"] = actual_name + " , " + field.get("/T").strip().lower()
                 data_dict["checkbox_opts"] = []
@@ -69,11 +62,9 @@ def process_pdf(reader):
                         kid = kid_ref.get_object()
                         data_dict["checkbox_opts"].append(list(kid['/AP']['/N'].keys())[0][1:])
                         if "/Rect" in kid:
-                            print(f"Field: {name} | BBox (Rect): {kid['/Rect']}")
                             data_dict["bbox"].append(kid['/Rect'])
                 else:
                     if "/Rect" in field:
-                        print(f"Field: {name} | BBox (Rect): {field['/Rect']}")
                         data_dict["bbox"].append(field['/Rect'])
 
 
