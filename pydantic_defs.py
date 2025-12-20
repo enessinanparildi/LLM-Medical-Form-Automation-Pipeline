@@ -121,7 +121,6 @@ def prompt_llm_structured(
     response = structured_llm.complete(formatted_prompt)
 
     # The response.raw is the Pydantic model instance
-    extraction_result: MedicalFormExtraction = response.raw
+    extraction_result = response.raw
 
-    print("Structured extraction completed successfully")
     return extraction_result
