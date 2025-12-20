@@ -1,0 +1,633 @@
+{
+    "first name": {
+        "label": "Patient Name (Last, First, Middle Initial)",
+        "normalized_name": "first name",
+        "bbox": [
+            32.6931,
+            604.383,
+            319.162,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.First Name"
+    },
+    "areacode": {
+        "label": "Home Phone # (+ Area Code)",
+        "normalized_name": "areacode",
+        "bbox": [
+            325.472,
+            604.383,
+            352.294,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1. areacode"
+    },
+    "phonea": {
+        "label": "Home Phone # (First three numbers)",
+        "normalized_name": "phonea",
+        "bbox": [
+            362.298,
+            604.383,
+            390.039,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.phoneA"
+    },
+    "phoneb": {
+        "label": "Home Phone # (Last four numbers)",
+        "normalized_name": "phoneb",
+        "bbox": [
+            399.842,
+            604.383,
+            435.068,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.phoneB"
+    },
+    "areacode1": {
+        "label": "Cell Phone # (+ Area Code)",
+        "normalized_name": "areacode1",
+        "bbox": [
+            456.03,
+            604.383,
+            482.852,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.areacode1"
+    },
+    "phonea1": {
+        "label": "Cell Phone # (First three numbers)",
+        "normalized_name": "phonea1",
+        "bbox": [
+            492.856,
+            604.383,
+            520.597,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.phoneA1"
+    },
+    "phoneb1": {
+        "label": "Cell Phone # (Last four numbers)",
+        "normalized_name": "phoneb1",
+        "bbox": [
+            530.399,
+            604.383,
+            565.625,
+            620.509
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.phoneB1"
+    },
+    "address": {
+        "label": "Address (Street, City, Province, Postal Code)",
+        "normalized_name": "address",
+        "bbox": [
+            33.3476,
+            573.24,
+            579.819,
+            589.366
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Address"
+    },
+    "employer name": {
+        "label": "Employer’s Name (if applicable)",
+        "normalized_name": "employer name",
+        "bbox": [
+            32.6931,
+            540.001,
+            241.712,
+            556.127
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Employer Name"
+    },
+    "contract": {
+        "label": "Contract or Policy #",
+        "normalized_name": "contract",
+        "bbox": [
+            248.875,
+            540.001,
+            352.379,
+            556.128
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Contract"
+    },
+    "cert": {
+        "label": "Certificate # (if applicable)",
+        "normalized_name": "cert",
+        "bbox": [
+            359.275,
+            540.001,
+            462.779,
+            556.128
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Cert"
+    },
+    "date_of_birth_d": {
+        "label": "Date of Birth (dd)",
+        "normalized_name": "date_of_birth_d",
+        "bbox": [
+            470.968,
+            540.001,
+            489.783,
+            556.128
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_of_birth_d"
+    },
+    "date_of_birth_m": {
+        "label": "Date of Birth (mm)",
+        "normalized_name": "date_of_birth_m",
+        "bbox": [
+            496.065,
+            540.001,
+            513.672,
+            556.128
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_of_birth_m"
+    },
+    "date_of_birth_y": {
+        "label": "Date of Birth (yyyy)",
+        "normalized_name": "date_of_birth_y",
+        "bbox": [
+            519.623,
+            540.001,
+            557.619,
+            556.128
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_of_birth_y"
+    },
+    "date_last_d": {
+        "label": "Date Last Worked (dd)",
+        "normalized_name": "date_last_d",
+        "bbox": [
+            34.1694,
+            508.583,
+            52.98442,
+            524.71
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_last_d"
+    },
+    "date_last_m": {
+        "label": "Date Last Worked (mm)",
+        "normalized_name": "date_last_m",
+        "bbox": [
+            59.2663,
+            508.583,
+            76.8734,
+            524.71
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_last_m"
+    },
+    "date_last_y": {
+        "label": "Date Last Worked (yyyy)",
+        "normalized_name": "date_last_y",
+        "bbox": [
+            82.82439,
+            508.583,
+            120.82,
+            524.71
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_last_y"
+    },
+    "date_return_d": {
+        "label": "Date Returned to Work or Expected Return to Work Date (dd)",
+        "normalized_name": "date_return_d",
+        "bbox": [
+            249.733,
+            508.583,
+            268.548,
+            524.71
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_return_d"
+    },
+    "date_return_m": {
+        "label": "Date Returned to Work or Expected Return to Work Date (mm)",
+        "normalized_name": "date_return_m",
+        "bbox": [
+            274.829,
+            508.583,
+            292.437,
+            524.71
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_return_m"
+    },
+    "date_return_y": {
+        "label": "Date Returned to Work or Expected Return to Work Date (yyyy)",
+        "normalized_name": "date_return_y",
+        "bbox": [
+            298.388,
+            508.583,
+            336.383,
+            524.71
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Date_return_y"
+    },
+    "medication1": {
+        "label": "Name of Medication (1)",
+        "normalized_name": "medication1",
+        "bbox": [
+            49.2021,
+            461.53,
+            278.259,
+            475.475
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Medication1"
+    },
+    "medication2": {
+        "label": "Name of Medication (2)",
+        "normalized_name": "medication2",
+        "bbox": [
+            49.2021,
+            445.385,
+            278.259,
+            459.329
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Medication2"
+    },
+    "medication3": {
+        "label": "Name of Medication (3)",
+        "normalized_name": "medication3",
+        "bbox": [
+            49.2021,
+            429.785,
+            278.259,
+            443.729
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Medication3"
+    },
+    "medication4": {
+        "label": "Name of Medication (4)",
+        "normalized_name": "medication4",
+        "bbox": [
+            49.8566,
+            413.749,
+            278.914,
+            427.693
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Medication4"
+    },
+    "medication5": {
+        "label": "Name of Medication (5)",
+        "normalized_name": "medication5",
+        "bbox": [
+            49.2021,
+            397.821,
+            278.259,
+            411.766
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Medication5"
+    },
+    "dose1": {
+        "label": "Dosage (mg) (1)",
+        "normalized_name": "dose1",
+        "bbox": [
+            291.383,
+            461.53,
+            370.44,
+            475.475
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Dose1"
+    },
+    "dose2": {
+        "label": "Dosage (mg) (2)",
+        "normalized_name": "dose2",
+        "bbox": [
+            291.383,
+            445.385,
+            370.44,
+            459.329
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Dose2"
+    },
+    "dose3": {
+        "label": "Dosage (mg) (3)",
+        "normalized_name": "dose3",
+        "bbox": [
+            291.383,
+            429.785,
+            370.44,
+            443.729
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Dose3"
+    },
+    "dose4": {
+        "label": "Dosage (mg) (4)",
+        "normalized_name": "dose4",
+        "bbox": [
+            291.383,
+            413.749,
+            370.44,
+            427.693
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Dose4"
+    },
+    "dose5": {
+        "label": "Dosage (mg) (5)",
+        "normalized_name": "dose5",
+        "bbox": [
+            291.383,
+            397.821,
+            370.44,
+            411.766
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Dose5"
+    },
+    "often1": {
+        "label": "How Often? (1)",
+        "normalized_name": "often1",
+        "bbox": [
+            383.674,
+            461.53,
+            462.731,
+            475.475
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Often1"
+    },
+    "often2": {
+        "label": "How Often? (2)",
+        "normalized_name": "often2",
+        "bbox": [
+            383.674,
+            445.385,
+            462.731,
+            459.329
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Often2"
+    },
+    "often3": {
+        "label": "How Often? (3)",
+        "normalized_name": "often3",
+        "bbox": [
+            383.674,
+            429.785,
+            462.731,
+            443.729
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Often3"
+    },
+    "often4": {
+        "label": "How Often? (4)",
+        "normalized_name": "often4",
+        "bbox": [
+            384.329,
+            412.44,
+            463.386,
+            426.384
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Often4"
+    },
+    "often5": {
+        "label": "How Often? (5)",
+        "normalized_name": "often5",
+        "bbox": [
+            383.674,
+            397.821,
+            462.731,
+            411.766
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Often5"
+    },
+    "height": {
+        "label": "Please provide your Height",
+        "normalized_name": "height",
+        "bbox": [
+            510.378,
+            461.53,
+            576.262,
+            475.475
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Height"
+    },
+    "weight": {
+        "label": "Please provide your Weight",
+        "normalized_name": "weight",
+        "bbox": [
+            510.378,
+            444.84,
+            576.262,
+            458.784
+        ],
+        "type": "text",
+        "pdf_field_name": "APS1.Weight"
+    },
+    "hand": {
+        "label": "Dominant Hand:",
+        "normalized_name": "hand",
+        "bbox": [
+            [
+                496.309,
+                396.172,
+                506.579,
+                406.648
+            ],
+            [
+                547.9902,
+                396.172,
+                558.261,
+                406.648
+            ]
+        ],
+        "type": "checkbox",
+        "checkbox_opts": [
+            "Left",
+            "Right"
+        ],
+        "pdf_field_name": "APS1.Hand"
+    },
+    "company_name": {
+        "label": "(Insurance Company)",
+        "normalized_name": "company_name",
+        "bbox": [
+            340.711,
+            366.636,
+            549.624,
+            380.58
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Company_name"
+    },
+    "doctor": {
+        "label": "I am the:",
+        "normalized_name": "doctor",
+        "bbox": [
+            [
+                162.545,
+                217.535,
+                172.815,
+                228.012
+            ],
+            [
+                279.462,
+                217.535,
+                289.733,
+                228.012
+            ],
+            [
+                339.899,
+                217.535,
+                350.169,
+                228.012
+            ]
+        ],
+        "type": "checkbox",
+        "checkbox_opts": [
+            "Family Physician",
+            "Consulting Specialist",
+            "Other (please specify)"
+        ],
+        "pdf_field_name": "APS2.Doctor"
+    },
+    "doctor_other": {
+        "label": "Other (please specify)",
+        "normalized_name": "doctor_other",
+        "bbox": [
+            409.766,
+            231.78,
+            575.805,
+            217.836
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Doctor_Other"
+    },
+    "diagnosis_primary1": {
+        "label": "Primary (1)",
+        "normalized_name": "diagnosis_primary1",
+        "bbox": [
+            70.6138,
+            142.827,
+            579.589,
+            156.771
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Diagnosis_Primary1"
+    },
+    "diagnosis_primary2": {
+        "label": "Primary (2)",
+        "normalized_name": "diagnosis_primary2",
+        "bbox": [
+            32.3984,
+            126.702,
+            579.589,
+            140.646
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Diagnosis_Primary2"
+    },
+    "diagnosis_secondary1": {
+        "label": "Secondary and/or Complications (1)",
+        "normalized_name": "diagnosis_secondary1",
+        "bbox": [
+            170.17,
+            108.791,
+            580.636,
+            122.735
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Diagnosis_Secondary1"
+    },
+    "diagnosis_secondary2": {
+        "label": "Secondary and/or Complications (2)",
+        "normalized_name": "diagnosis_secondary2",
+        "bbox": [
+            33.44572,
+            92.6656,
+            580.636,
+            106.61
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Diagnosis_Secondary2"
+    },
+    "date_childbirth_d": {
+        "label": "If Childbirth - Expected or Actual Delivery Date (dd)",
+        "normalized_name": "date_childbirth_d",
+        "bbox": [
+            269.805,
+            72.0542,
+            288.62,
+            85.9984
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Date_Childbirth_d"
+    },
+    "date_childbirth_m": {
+        "label": "If Childbirth - Expected or Actual Delivery Date (mm)",
+        "normalized_name": "date_childbirth_m",
+        "bbox": [
+            294.902,
+            72.0542,
+            312.509,
+            85.9984
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Date_Childbirth_m"
+    },
+    "date_childbirth_y": {
+        "label": "If Childbirth - Expected or Actual Delivery Date (yyyy)",
+        "normalized_name": "date_childbirth_y",
+        "bbox": [
+            318.46,
+            72.0542,
+            356.456,
+            85.9984
+        ],
+        "type": "text",
+        "pdf_field_name": "APS2.Date_Childbirth_y"
+    },
+    "delivery": {
+        "label": "Delivery",
+        "normalized_name": "delivery",
+        "bbox": [
+            [
+                467.072,
+                70.644,
+                477.343,
+                81.1207
+            ],
+            [
+                535.59,
+                70.644,
+                545.861,
+                81.1207
+            ]
+        ],
+        "type": "checkbox",
+        "checkbox_opts": [
+            "Vaginal",
+            "C-Section"
+        ],
+        "pdf_field_name": "APS2.Delivery"
+    }
+}
