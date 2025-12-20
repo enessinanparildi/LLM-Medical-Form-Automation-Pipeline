@@ -425,8 +425,6 @@ PDF form expects day/month/year in separate fields.
 
 ## Next Steps (With More Time/Resources)
 
-### Short-Term (1-2 weeks)
-
 **1. Improve Checkbox Handling**
 - Implement fuzzy matching between LLM output and checkbox options
 - Add validation step that maps near-matches (e.g., "doctor" → "Family Doctor")
@@ -445,8 +443,6 @@ PDF form expects day/month/year in separate fields.
 - Use `soap_training_data.json` format as starting point
 - Enables systematic evaluation across edge cases
 
-### Medium-Term (1-2 months)
-
 **5. Multi-Page Form Support**
 - Extend schema extraction to handle complex multi-page forms
 - Track field dependencies across pages
@@ -457,58 +453,32 @@ PDF form expects day/month/year in separate fields.
 - Use layout models to identify form structure
 - Combine with current LLM extraction pipeline
 
-**7. Real-Time API**
-- Wrap pipeline in FastAPI endpoint
-- Return JSON + populated PDF
-- Add webhook for async processing of large batches
-
-**8. Multi-Lingual Support**
-- Extend to French (required for Canadian healthcare)
-- Test Gemini's multilingual capabilities
-- May need separate validation rules per locale
-
-### Long-Term (3-6 months)
-
-**9. EHR Integration**
-- Build HL7/FHIR connectors to pull data directly from hospital systems
-- Reduces manual data gathering step
-- Requires compliance certifications (HIPAA, PIPEDA)
-
-**10. Active Learning Loop**
-- When human corrects extraction, save correction
-- Fine-tune LLM on accumulated corrections
-- Or use corrections to improve prompt engineering
-
-**11. Multi-Modal Input**
+**7. Multi-Modal Input**
 - Accept handwritten notes (via vision model)
 - Accept voice recordings (via Whisper → SOAP notes)
 - Accept images (lab results photo from phone)
 
-**11. Vision Models**
+**8. Vision Models**
 - The current OCR script relies on Tesseract engine which is probably insufficient.
 - Using a visuan model engine might improve OCR performance.
 
-
-**12. Form Generation (Reverse Problem)**
-- Given patient data, automatically select correct form template
-- Pre-populate common fields across form families
-- "Smart forms" that adapt to patient context
-
-### Research Directions
-
-**13. Medical Reasoning Benchmark**
-- Create standardized test set for medical form extraction
-- Compare models (GPT-4, Claude, Gemini, Llama 3)
-- Publish results to guide future practitioners
-
-**14. Prompt Optimization at Scale**
+**9. Prompt Optimization at Scale**
 - Use DSPy or similar to auto-optimize prompt based on ground truth
 - May discover better extraction strategies than manual engineering
 
-**15. Cost Reduction**
-- Try smaller models (Gemini Flash 8B vs 2B) on subset of fields
+**10. Cost Reduction**
+- Experiment with smaller models (Gemini Flash 8B vs 2B).
 - Route simple fields to cheap model, complex to expensive model
-- Could reduce cost by 50-70%
+
+**11. RAG (Retrieval-Augmented Generation) Integration**
+
+- Current Approach: The system currently loads all documents directly into the LLM context to perform extraction.
+- Design Decision: For this specific application, documents are small (totaling approximately 5–10 pages), so RAG was not implemented in the current scope.
+- Scalability & Use Cases: RAG becomes a vital architectural component in the following scenarios:
+- Multi-year Patient Histories: When analyzing hundreds of pages of longitudinal medical records.
+- Enterprise Hospital Systems: Managing extensive, high-volume documentation across various departments.
+- Context Window Limitations: When the total volume of patient documentation exceeds the token limit of the selected LLM.
+
 
 ---
 
