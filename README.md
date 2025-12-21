@@ -377,13 +377,9 @@ Critical Weaknesses:
 
 - Chief Complaint extraction fails 67% of the time
 - Diagnosis extraction extremely unreliable (13.3%)
-
-
 - Hallucination rate of 27.3% is concerning for medical applications
 
-Model occasionally invents details not in source text
-Likely due to medical knowledge "filling in gaps"
-Validates need for strict citation requirements in production prompt
+Model occasionally invents details not in source text. Likely due to medical knowledge "filling in gaps" Validates need for strict citation requirements in production prompt
 
 ## Key Challenges
 
