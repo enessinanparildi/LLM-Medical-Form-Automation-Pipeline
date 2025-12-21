@@ -2,7 +2,81 @@ import json
 import re
 from collections import defaultdict
 
+from typing import List, Optional
+from pydantic import BaseModel, Field, field_validator
+import re
+
+from utils import get_llamaindex_gemini
+from llama_index.core import PromptTemplate
+
 DATE_REGEX = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+class SoapExtraction(BaseModel):
+    patient_age: Optional[int] = Field(
+        description="Patient age in years if explicitly stated"
+    )
+    chief_complaint: Optional[str] = Field(
+        description="Primary complaint stated by the patient"
+    )
+    diagnosis: Optional[str] = Field(
+        description="Assessment or diagnosis if explicitly stated"
+    )
+    medications: List[str] = Field(
+        description="Medications explicitly mentioned in the plan"
+    )
+    visit_date: Optional[str] = Field(
+        description="Visit date in ISO format YYYY-MM-DD"
+    )
+
+    @field_validator("visit_date")
+    @classmethod
+    def validate_date(cls, v):
+        if v is None:
+            return v
+        if not DATE_REGEX.match(v):
+            raise ValueError("visit_date must be YYYY-MM-DD")
+        return v
+
+
+
+
+def extract_structured() -> SoapExtraction:
+    template = (
+        """
+    You are a clinical information extraction system.
+
+    Extract ONLY information explicitly stated in the SOAP note.
+    If a field is not present, return null.
+    Do NOT infer or guess.
+
+    SOAP NOTE:
+    {soap_note}
+    """
+    )
+
+    train_data = load_json("./data/soap_training_data.json")
+    final_str = ""
+    for d in train_data:
+        final_str = d["input_text"]  + "\n" + "-----------------" + "\n" +  final_str
+
+    text_list = [d["input_text"] for d in train_data]
+    llm = get_llamaindex_gemini()
+
+    # Create structured LLM with Pydantic model
+    structured_llm = llm.as_structured_llm(output_cls=SoapExtraction)
+    prompt_template = PromptTemplate(template)
+
+    # Format the prompt
+    responses = []
+    for text in text_list:
+        formatted_prompt = prompt_template.format(soap_note=text)
+        # Get structured response
+        response = structured_llm.complete(formatted_prompt)
+        responses.append(response.raw)
+            # The response.raw is the Pydantic model instance
+    extraction_result = responses
+
+    return extraction_result
 
 FIELDS = [
     "patient_age",
@@ -33,7 +107,6 @@ def check_format(field, value):
     return isinstance(value, str)
 
 def evaluate(dataset, outputs):
-    outputs_by_id = {o["id"]: o["output"] for o in outputs}
 
     field_correct = defaultdict(int)
     field_total = defaultdict(int)
@@ -43,14 +116,13 @@ def evaluate(dataset, outputs):
     hallucinations = 0
     hallucination_opportunities = 0
 
-    for example in dataset:
-        ex_id = example["id"]
+    for ord, example in enumerate(dataset):
         truth = example["ground_truth"]
-        pred = outputs_by_id.get(ex_id, {})
+        pred = outputs[ord]
 
         for field in FIELDS:
             gt_value = truth[field]
-            pred_value = pred.get(field)
+            pred_value = getattr(pred, field)
 
             field_total[field] += 1
             total_fields += 1
@@ -83,8 +155,9 @@ def evaluate(dataset, outputs):
     return results
 
 def main():
-    dataset = load_json("eval_dataset.json")
-    outputs = load_json("model_outputs.json")
+    result = extract_structured()
+    dataset = load_json("./data/soap_training_data.json")
+    outputs = result
 
     results = evaluate(dataset, outputs)
 
