@@ -351,6 +351,40 @@ The validation step (`data_validation_check`) successfully processed all extract
 
 This suggests the priority system (S3 > S2 > S1) is well-calibrated, with the slight weakness in parsing unstructured lab result PDFs being the only area for improvement.
 
+**SOAP Notes Training Data Evaluation**:
+A separate evaluation was performed using the training dataset (soap_training_data.json) with 15 diverse SOAP note examples to test the LLM's ability to extract structured fields from unstructured clinical notes:
+Field-Level Accuracy (from soap.eval script):
+
+- patient_age: 1.000 (100%) — Perfect extraction of age from notes
+- visit_date: 1.000 (100%) — Perfect date parsing across multiple formats
+- medications: 0.867 (86.7%) — Strong medication extraction despite varied phrasing
+- chief_complaint: 0.333 (33.3%) — Struggled with complaint identification
+- diagnosis: 0.133 (13.3%) — Poor performance on diagnosis extraction
+
+Error Analysis:
+
+Formatting Error Rate: 0.0% — No format violations (dates, lists properly structured)
+Hallucination Rate: 27.3% — Model occasionally fabricated information not present in source
+
+Key Findings:
+What Works Well:
+
+- Structured fields with clear patterns (age, dates) achieve perfect accuracy
+- Medications extracted well even with abbreviations and varied dosing formats
+- No formatting errors indicates prompt instructions are well-followed
+
+Critical Weaknesses:
+
+- Chief Complaint extraction fails 67% of the time
+- Diagnosis extraction extremely unreliable (13.3%)
+
+
+- Hallucination rate of 27.3% is concerning for medical applications
+
+Model occasionally invents details not in source text
+Likely due to medical knowledge "filling in gaps"
+Validates need for strict citation requirements in production prompt
+
 ## Key Challenges
 
 ### 1. LLM Hallucination Risk
