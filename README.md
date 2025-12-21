@@ -26,7 +26,7 @@ This pipeline solves the specific problem of **automated medical form population
 ### What's Out of Scope (For Now)
 
 - **OCR for scanned documents**: Based on experiments (`ocr_experiment.py`), OCR quality didn't justify the complexity. Modern fillable PDFs provide structured fields that are easier to work with.
-- It seems tedious to install the libraries required to run layoutparser OCR code on a Windows environment. I tried to use Colab, but it kept getting disconneting and losing the environment with the necessary packages.
+- It seems tedious to install the libraries required to run layoutparser OCR code on a Windows environment. I tried to use Colab, but it kept getting disconneting and losing the environment with the necessary packages. The packages takes long to install.
 - **Handwritten notes**: Current pipeline assumes typed/digital source documents
 - **Multi-page complex forms**: Focused on single-page proof of concept
 
