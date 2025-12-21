@@ -44,3 +44,16 @@ layout = model.detect(img)
 
 # 3. Filter for just "Text" or "Title" blocks
 text_blocks = lp.Layout([b for b in layout if b.type in ["Text", "Title"]])
+for block in text_blocks:
+    segment_image = (block
+                       .pad(left=5, right=5, top=5, bottom=5)
+                       .crop_image(img))
+        # add padding in each image segment can help
+        # improve robustness 
+        
+    text = ocr_agent.detect(segment_image)
+    block.set(text=text, inplace=True)
+
+for txt in text_blocks.get_texts():
+    print(txt, end='\n---\n')
+
