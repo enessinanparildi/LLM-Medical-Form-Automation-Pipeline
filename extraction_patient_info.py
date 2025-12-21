@@ -4,6 +4,7 @@ from utils import get_field_data, compare_with_ground_truth, get_llamaindex_gemi
 from data_validation import parse_address, validate_dob, validate_area_code
 import json
 from pydantic_defs import prompt_llm_structured
+import re
 
 llama_parse_api_key = "llx-MUN65fZqQmrw2ywgBss5pdvVLdMr1ZQt6NBBdfZKdUmEV71H"
 
@@ -178,6 +179,11 @@ def data_validation_check(llm_data_dict):
         else:
             pass
 
+def extract_json_object(text):
+    m = re.search(r"\{.*\}", text, flags=re.S)
+    if not m:
+        raise ValueError("No JSON object found")
+    return json.loads(m.group(0))
 
 if __name__ == "__main__":
     structured_extraction = False
@@ -191,10 +197,12 @@ if __name__ == "__main__":
         output_text, out = prompt_llm(patient_demographic_data, soap_content, lab_result_text, field_data_str)
         print(output_text)
 
-        with open("./output/answers.json", "w", encoding="utf-8") as f:
-            json.dump(output_text[7:-3], f, indent=4, ensure_ascii=False)
+        json_text = extract_json_object(output_text)
 
-        out_json = json.loads(output_text[7:-3])
+        with open("./output/answers.json", "w", encoding="utf-8") as f:
+            json.dump(json_text, f, indent=4, ensure_ascii=False)
+
+        out_json = json.loads(json_text)
         data_validation_check(out_json)
         compare_with_ground_truth(out_json)
         assert len(out_json.keys()) == len(field_data_json.keys())
