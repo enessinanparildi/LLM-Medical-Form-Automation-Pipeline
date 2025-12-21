@@ -254,9 +254,7 @@ Initial attempts used simpler prompts, which caused:
 - **Speed**: ~40 tokens/second, <2s total for this workload
 
 **Comparison**:
-- GPT-4: 10-15x more expensive, similar quality for this task
-- Claude 3: Similar cost/quality but wanted to test Gemini ecosystem
-- Open-source (Llama 3, Mixtral): Would require self-hosting, unclear medical reasoning quality
+- Open-source (Llama 3 etc): Would require self-hosting, unclear medical reasoning quality
 
 **2. Long Context Window**
 - Can fit all source documents + schema in single prompt
