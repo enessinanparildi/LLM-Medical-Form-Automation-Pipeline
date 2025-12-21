@@ -97,7 +97,7 @@ Focused on the **highest-impact, lowest-complexity** path: fillable PDFs are ubi
 
 **1. Traditional PDF Parsing Over OCR**
 - **Decision**: Use pypdf's built-in form field extraction rather than OCR-based layout detection
-- **Rationale**: Fillable PDFs contain structured metadata (field names, types, positions). OCR experiments (`ocr_experiment.py`) showed that layout detection models (PaddleDetection, Tesseract) added complexity without improving accuracy for forms that are already digitally structured.
+- **Rationale**: Fillable PDFs contain structured metadata (field names, types, positions). OCR experiments (`ocr_experiment.py`) showed that layout detection and OCR models added complexity without improving accuracy for forms that are already digitally structured.
 - **Trade-off**: Only works for fillable PDFs, not scanned/image-based forms
 
 **2. LLM-First Extraction Strategy**
