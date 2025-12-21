@@ -483,7 +483,6 @@ PDF form expects day/month/year in separate fields.
 
 **7. Multi-Modal Input**
 - Accept handwritten notes (via vision model)
-- Accept voice recordings (via Whisper → SOAP notes)
 - Accept images (lab results photo from phone)
 
 **8. Vision Models**
