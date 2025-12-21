@@ -2,9 +2,6 @@ from llama_index.llms.google_genai import GoogleGenAI
 import json
 
 
-gemini_api_key_2 = "AIzaSyCL5iMKg4PMNZ79GWmokhB0R5Mb9WezOy0"
-
-
 def compare_with_ground_truth(llm_data_dict):
     def normalize_value(value):
         """Normalize value for comparison (handles None, case, whitespace)"""

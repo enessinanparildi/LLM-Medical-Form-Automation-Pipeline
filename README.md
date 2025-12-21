@@ -26,7 +26,7 @@ This pipeline solves the specific problem of **automated medical form population
 ### What's Out of Scope (For Now)
 
 - **OCR for scanned documents**: Based on experiments (`ocr_experiment.py`), OCR quality didn't justify the complexity. Modern fillable PDFs provide structured fields that are easier to work with.
-- It seems tedious to install the libraries required to run layoutparser OCR code on a Windows environment. I tried to use Colab, but it kept getting disconneting and losing the environment with the necessary packages.
+- It seems tedious to install the libraries required to run layoutparser OCR code on a Windows environment. I tried to use Colab, but it kept getting disconneting and losing the environment with the necessary packages. The packages takes long to install.
 - **Handwritten notes**: Current pipeline assumes typed/digital source documents
 - **Multi-page complex forms**: Focused on single-page proof of concept
 
@@ -97,7 +97,7 @@ Focused on the **highest-impact, lowest-complexity** path: fillable PDFs are ubi
 
 **1. Traditional PDF Parsing Over OCR**
 - **Decision**: Use pypdf's built-in form field extraction rather than OCR-based layout detection
-- **Rationale**: Fillable PDFs contain structured metadata (field names, types, positions). OCR experiments (`ocr_experiment.py`) showed that layout detection models (PaddleDetection, Tesseract) added complexity without improving accuracy for forms that are already digitally structured.
+- **Rationale**: Fillable PDFs contain structured metadata (field names, types, positions). OCR experiments (`ocr_experiment.py`) showed that layout detection and OCR models added complexity without improving accuracy for forms that are already digitally structured.
 - **Trade-off**: Only works for fillable PDFs, not scanned/image-based forms
 
 **2. LLM-First Extraction Strategy**
@@ -254,9 +254,7 @@ Initial attempts used simpler prompts, which caused:
 - **Speed**: ~40 tokens/second, <2s total for this workload
 
 **Comparison**:
-- GPT-4: 10-15x more expensive, similar quality for this task
-- Claude 3: Similar cost/quality but wanted to test Gemini ecosystem
-- Open-source (Llama 3, Mixtral): Would require self-hosting, unclear medical reasoning quality
+- Open-source (Llama 3 etc): Would require self-hosting, unclear medical reasoning quality
 
 **2. Long Context Window**
 - Can fit all source documents + schema in single prompt
@@ -453,7 +451,7 @@ PDF form expects day/month/year in separate fields.
 
 **Learning**: Don't over-engineer. Use simplest solution that works for target use case. I added a simple 
 
-## Next Steps (With More Time/Resources)
+## Next Steps (With More Time/Resources) (I could have implemented most of the stuff listed here, I just did not have enough time.)
 
 **1. Improve Checkbox Handling**
 - Implement fuzzy matching between LLM output and checkbox options
@@ -485,7 +483,6 @@ PDF form expects day/month/year in separate fields.
 
 **7. Multi-Modal Input**
 - Accept handwritten notes (via vision model)
-- Accept voice recordings (via Whisper → SOAP notes)
 - Accept images (lab results photo from phone)
 
 **8. Vision Models**
@@ -499,6 +496,10 @@ PDF form expects day/month/year in separate fields.
 **10. Cost Reduction**
 - Experiment with smaller models (Gemini Flash 8B vs 2B).
 - Route simple fields to cheap model, complex to expensive model
+
+**11. Response Log Probabilities**
+- We may utilize response_logprobs in order get more accurate confidence scoring.
+- This can be used as a sanity check, extremely low response log probability might indicate lower confidence.
 
 **11. RAG (Retrieval-Augmented Generation) Integration**
 
