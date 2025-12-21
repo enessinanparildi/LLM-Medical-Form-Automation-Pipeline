@@ -451,7 +451,7 @@ PDF form expects day/month/year in separate fields.
 
 **Learning**: Don't over-engineer. Use simplest solution that works for target use case. I added a simple 
 
-## Next Steps (With More Time/Resources)
+## Next Steps (With More Time/Resources) (I could have implemented most of the stuff listed here, I just did not have enough time.)
 
 **1. Improve Checkbox Handling**
 - Implement fuzzy matching between LLM output and checkbox options
@@ -496,6 +496,10 @@ PDF form expects day/month/year in separate fields.
 **10. Cost Reduction**
 - Experiment with smaller models (Gemini Flash 8B vs 2B).
 - Route simple fields to cheap model, complex to expensive model
+
+**11. Response Log Probabilities**
+- We may utilize response_logprobs in order get more accurate confidence scoring.
+- This can be used as a sanity check, extremely low response log probability might indicate lower confidence.
 
 **11. RAG (Retrieval-Augmented Generation) Integration**
 
