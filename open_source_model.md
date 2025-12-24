@@ -53,6 +53,8 @@ To determine which open-source model we should utilize, we should run some exper
 
 We can use our standard evaluation benchmarks to determine which model performs best. While open-source models can generally underperform compared to high-performing closed-source models such as Gemini 3.0, using a medical domain-focused model can help mitigate this performance gap.
 
+In terms of reproducibility, using open‑source models improves reproducibility by allowing fixed model versions, deterministic decoding settings, and offline evaluation without API drift. Settings can be more opaque for closed sourced models. 
+
 ## Managing Context Length Constraints
 
 Open-source models typically come with shorter context lengths than Gemini 3.0, which is an important factor to consider. To reduce context length usage, we can call the LLM for each document separately, ensuring that the context includes only a single document at a time. We would perform the extraction separately and then merge the output JSONs.
