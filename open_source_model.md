@@ -59,7 +59,7 @@ Open-source models typically come with shorter context lengths than Gemini 3.0, 
 
 ### Conflict Resolution Strategy
 
-For a particular field, if there is no conflict, we accept the extracted value. If a conflict is detected, we can use one of two approaches: make an additional LLM call for conflict resolution, or alternatively, use the log probabilities from the previous extraction to resolve the conflict.
+For a particular field, if there is no conflict, we accept the extracted value. If a conflict is detected, we can use one of two approaches: make an additional LLM call for conflict resolution, or alternatively, use the log probabilities from the previous extraction to resolve the conflict utilizing the citations and quotes. Another approach could be using predefined heuristics, such as a priority list of documents for each field.
 
 ### Confidence Score Calculation
 
