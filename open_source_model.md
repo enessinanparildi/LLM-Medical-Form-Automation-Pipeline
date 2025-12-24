@@ -53,7 +53,7 @@ To determine which open-source model we should utilize, we should run some exper
 
 We can use our standard evaluation benchmarks to determine which model performs best. While open-source models can generally underperform compared to high-performing closed-source models such as Gemini 3.0, using a medical domain-focused model can help mitigate this performance gap.
 
-In terms of reproducibility, using open‑source models improves reproducibility by allowing fixed model versions, deterministic decoding settings, and offline evaluation without API drift. Model version changes and settings can be more opaque for closed sourced models. 
+In terms of reproducibility, using open‑source models improves reproducibility by allowing fixed model versions, deterministic decoding settings, and offline evaluation without API drift. Model version changes, updates and settings can be more opaque for closed sourced models. 
 
 ## Managing Context Length Constraints
 
