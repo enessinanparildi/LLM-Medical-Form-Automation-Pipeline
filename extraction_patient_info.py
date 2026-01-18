@@ -6,7 +6,7 @@ import json
 from pydantic_defs import prompt_llm_structured
 import re
 
-llama_parse_api_key = "llx-MUN65fZqQmrw2ywgBss5pdvVLdMr1ZQt6NBBdfZKdUmEV71H"
+llama_parse_api_key = ""
 
 #TODO: Add structured extraction: Structured extraction added but we encountered an error:
 # The specified schema produces a constraint that has too many states for serving.  Typical causes of this error are schemas with lots of text (for example, very long property or enum names), schemas with long array length limits (especially when nested), or schemas using complex value matchers (for example, integers or numbers with minimum/maximum bounds or strings with complex formats like date-time)'
