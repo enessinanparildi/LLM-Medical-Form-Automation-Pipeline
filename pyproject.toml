@@ -1,0 +1,176 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medical-form-automation"
+version = "0.1.0"
+description = "AI-powered medical form automation using LLMs to extract patient data from unstructured documents and populate standardized PDF forms"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = [
+    "medical-automation",
+    "healthcare-ai",
+    "llm",
+    "form-filling",
+    "pdf-processing",
+    "gemini",
+    "llamaparse",
+    "medical-informatics",
+    "healthcare-nlp",
+    "document-extraction"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+dependencies = [
+    # PDF processing
+    "pypdf>=3.17.0",
+    
+    # LLM and parsing
+    "llama-parse>=0.4.0",
+    "llama-index-core>=0.10.0",
+    "llama-index-llms-google-genai>=0.2.0",
+    
+    # Data validation
+    "pgeocode>=0.4.0",
+    "usaddress>=0.5.10",
+    "phonenumbers>=8.13.0",
+    "python-dateutil>=2.8.2",
+    
+    # Data models and validation
+    "pydantic>=2.0.0",
+    
+    # Utilities
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.7.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+    "mypy>=1.5.0",
+]
+
+ocr = [
+    # OCR dependencies (optional, marked as experimental in README)
+    "layoutparser>=0.3.4",
+    "pdf2image>=1.16.3",
+    "opencv-python>=4.8.0",
+    "pytesseract>=0.3.10",
+    "PyMuPDF>=1.23.0",
+]
+
+medical = [
+    # Medical domain-specific models (for future experimentation)
+    "transformers>=4.30.0",
+    "torch>=2.0.0",
+    "vllm>=0.2.0; platform_system != 'Windows'",
+]
+
+all = [
+    "medical-form-automation[dev,ocr,medical]",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/medical-form-automation"
+Documentation = "https://github.com/yourusername/medical-form-automation#readme"
+Repository = "https://github.com/yourusername/medical-form-automation"
+"Bug Tracker" = "https://github.com/yourusername/medical-form-automation/issues"
+
+[tool.setuptools]
+packages = ["medical_form_automation"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+medical_form_automation = ["data/*", "output/*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | output
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip_gitignore = true
+known_first_party = ["medical_form_automation"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=medical_form_automation",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "-v",
+]
+
+[tool.coverage.run]
+source = ["medical_form_automation"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/ocr_experiment.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if False:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[project.scripts]
+extract-schema = "medical_form_automation.pdf_extraction:main"
+extract-data = "medical_form_automation.extraction_patient_info:main"
+populate-pdf = "medical_form_automation.pdf_populate:main_populate"
+evaluate-soap = "medical_form_automation.soap_eval:main"
