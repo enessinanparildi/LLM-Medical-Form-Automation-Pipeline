@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medical-form-automation"
-version = "0.1.0"
+version = "0.2.0"
 description = "AI-powered medical form automation using LLMs to extract patient data from unstructured documents and populate standardized PDF forms"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Enes Sinan Parildi"}
 ]
 keywords = [
     "medical-automation",
@@ -20,17 +20,13 @@ keywords = [
     "pdf-processing",
     "gemini",
     "llamaparse",
-    "medical-informatics",
-    "healthcare-nlp",
-    "document-extraction"
+    "fastapi",
 ]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Healthcare Industry",
-    "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -39,24 +35,26 @@ classifiers = [
 ]
 
 dependencies = [
-    # PDF processing
     "pypdf>=3.17.0",
-    
-    # LLM and parsing
+
     "llama-parse>=0.4.0",
     "llama-index-core>=0.10.0",
     "llama-index-llms-google-genai>=0.2.0",
-    
-    # Data validation
+
     "pgeocode>=0.4.0",
     "usaddress>=0.5.10",
     "phonenumbers>=8.13.0",
     "python-dateutil>=2.8.2",
-    
-    # Data models and validation
-    "pydantic>=2.0.0",
-    
-    # Utilities
+
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.0.0",
+
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.27.0",
+    "python-multipart>=0.0.9",
+
+    "structlog>=24.1.0",
+
     "python-dotenv>=1.0.0",
 ]
 
@@ -64,14 +62,12 @@ dependencies = [
 dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
-    "black>=23.7.0",
-    "isort>=5.12.0",
-    "flake8>=6.1.0",
-    "mypy>=1.5.0",
+    "httpx>=0.27.0",
+    "ruff>=0.4.0",
+    "mypy>=1.8.0",
 ]
 
 ocr = [
-    # OCR dependencies (optional, marked as experimental in README)
     "layoutparser>=0.3.4",
     "pdf2image>=1.16.3",
     "opencv-python>=4.8.0",
@@ -79,61 +75,38 @@ ocr = [
     "PyMuPDF>=1.23.0",
 ]
 
-medical = [
-    # Medical domain-specific models (for future experimentation)
-    "transformers>=4.30.0",
-    "torch>=2.0.0",
-    "vllm>=0.2.0; platform_system != 'Windows'",
-]
-
-all = [
-    "medical-form-automation[dev,ocr,medical]",
-]
-
 [project.urls]
-Homepage = "https://github.com/yourusername/medical-form-automation"
-Documentation = "https://github.com/yourusername/medical-form-automation#readme"
-Repository = "https://github.com/yourusername/medical-form-automation"
-"Bug Tracker" = "https://github.com/yourusername/medical-form-automation/issues"
+Repository = "https://github.com/enessinanparildi/LLM-Medical-Form-Automation-Pipeline"
 
-[tool.setuptools]
-packages = ["medical_form_automation"]
-package-dir = {"" = "src"}
+[project.scripts]
+extract-schema = "medical_form_automation.pdf_extraction:main"
+extract-data = "medical_form_automation.extraction:main"
+populate-pdf = "medical_form_automation.pdf_populate:main"
+evaluate-soap = "medical_form_automation.soap_eval:main"
 
-[tool.setuptools.package-data]
-medical_form_automation = ["data/*", "output/*"]
+[tool.setuptools.packages.find]
+include = ["medical_form_automation*"]
+exclude = ["tests*"]
 
-[tool.black]
+[tool.ruff]
 line-length = 100
-target-version = ['py39', 'py310', 'py311']
-include = '\.pyi?$'
-extend-exclude = '''
-/(
-  # directories
-  \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | build
-  | dist
-  | output
-)/
-'''
+target-version = "py310"
+extend-exclude = ["output", "data"]
 
-[tool.isort]
-profile = "black"
-line_length = 100
-skip_gitignore = true
-known_first_party = ["medical_form_automation"]
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "RUF"]
+ignore = ["B008", "E501"]
+
+[tool.ruff.format]
+quote-style = "double"
 
 [tool.mypy]
-python_version = "3.9"
-warn_return_any = true
+python_version = "3.10"
+warn_return_any = false
 warn_unused_configs = true
 disallow_untyped_defs = false
 ignore_missing_imports = true
+exclude = ["tests/", "build/", "dist/"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -142,18 +115,20 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = [
     "--cov=medical_form_automation",
-    "--cov-report=html",
     "--cov-report=term-missing",
+    "--cov-fail-under=70",
     "-v",
+]
+markers = [
+    "integration: live LLM/LlamaParse calls (skipped by default)",
 ]
 
 [tool.coverage.run]
 source = ["medical_form_automation"]
 omit = [
     "*/tests/*",
-    "*/test_*.py",
-    "*/__pycache__/*",
-    "*/ocr_experiment.py",
+    "*/__main__.py",
+    "*/soap_eval.py",
 ]
 
 [tool.coverage.report]
@@ -163,14 +138,4 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "raise AssertionError",
     "raise NotImplementedError",
-    "if 0:",
-    "if False:",
-    "class .*\\bProtocol\\):",
-    "@(abc\\.)?abstractmethod",
 ]
-
-[project.scripts]
-extract-schema = "medical_form_automation.pdf_extraction:main"
-extract-data = "medical_form_automation.extraction_patient_info:main"
-populate-pdf = "medical_form_automation.pdf_populate:main_populate"
-evaluate-soap = "medical_form_automation.soap_eval:main"

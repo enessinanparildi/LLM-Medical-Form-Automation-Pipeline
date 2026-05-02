@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+ENV/
+
+# Tooling caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# IDE / tooling
+.idea/
+.vscode/
+.claude/
+*.swp
+*.swo
+
+# Secrets / local env
+.env
+.env.local
+.env.*.local
+
+# Pipeline scratch outputs
+output/
+*.pdf.tmp
+
+# OS
+.DS_Store
+Thumbs.db
