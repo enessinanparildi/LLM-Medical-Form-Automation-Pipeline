@@ -1,0 +1,474 @@
+{
+    "first name": {
+        "field_spec": "first name : Patient Name (Last, First, Middle Initial)",
+        "value": "Peter Julius Fern",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "Peter Julius Fern"
+            }
+        ],
+        "reasoning": "Patient name is directly available in S3.",
+        "confidence": 1.0
+    },
+    "areacode": {
+        "field_spec": "areacode : Home Phone # (+ Area Code)",
+        "value": "613",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "613-6565-890"
+            }
+        ],
+        "reasoning": "Area code is extracted from the home phone number in S3.",
+        "confidence": 1.0
+    },
+    "phonea": {
+        "field_spec": "phonea : Home Phone # (First three numbers)",
+        "value": "656",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "613-6565-890"
+            }
+        ],
+        "reasoning": "First three numbers of the home phone number are extracted from S3.",
+        "confidence": 1.0
+    },
+    "phoneb": {
+        "field_spec": "phoneb : Home Phone # (Last four numbers)",
+        "value": "5890",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "613-6565-890"
+            }
+        ],
+        "reasoning": "Last four numbers of the home phone number are extracted from S3.",
+        "confidence": 1.0
+    },
+    "areacode1": {
+        "field_spec": "areacode1 : Cell Phone # (+ Area Code)",
+        "value": "647",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "647-666-8888"
+            }
+        ],
+        "reasoning": "Area code is extracted from the mobile phone number in S3.",
+        "confidence": 1.0
+    },
+    "phonea1": {
+        "field_spec": "phonea1 : Cell Phone # (First three numbers)",
+        "value": "666",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "647-666-8888"
+            }
+        ],
+        "reasoning": "First three numbers of the mobile phone number are extracted from S3.",
+        "confidence": 1.0
+    },
+    "phoneb1": {
+        "field_spec": "phoneb1 : Cell Phone # (Last four numbers)",
+        "value": "8888",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "647-666-8888"
+            }
+        ],
+        "reasoning": "Last four numbers of the mobile phone number are extracted from S3.",
+        "confidence": 1.0
+    },
+    "address": {
+        "field_spec": "address : Address (Street, City, Province, Postal Code)",
+        "value": "45 Maple Ave, Toronto, ON, K7L 3V8",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "45 Maple Ave, Toronto, ON, K7L 3V8"
+            }
+        ],
+        "reasoning": "Address is directly available in S3.",
+        "confidence": 1.0
+    },
+    "employer name": {
+        "field_spec": "employer name : EmployerÃ¢â‚¬â„¢s Name (if applicable)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No employer name is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "contract": {
+        "field_spec": "contract : Contract or Policy #",
+        "value": "9696178816",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "9696178816"
+            }
+        ],
+        "reasoning": "Healthcard number is used as contract number in Canada.",
+        "confidence": 1.0
+    },
+    "cert": {
+        "field_spec": "cert : Certificate # (if applicable)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No certificate number is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_of_birth_d": {
+        "field_spec": "date_of_birth_d : Date of Birth (dd)",
+        "value": "15",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "1960-04-15"
+            }
+        ],
+        "reasoning": "Day of birth is extracted from the date of birth in S3.",
+        "confidence": 1.0
+    },
+    "date_of_birth_m": {
+        "field_spec": "date_of_birth_m : Date of Birth (mm)",
+        "value": "04",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "1960-04-15"
+            }
+        ],
+        "reasoning": "Month of birth is extracted from the date of birth in S3.",
+        "confidence": 1.0
+    },
+    "date_of_birth_y": {
+        "field_spec": "date_of_birth_y : Date of Birth (yyyy)",
+        "value": "1960",
+        "citations": [
+            {
+                "source": "S3",
+                "quote": "1960-04-15"
+            }
+        ],
+        "reasoning": "Year of birth is extracted from the date of birth in S3.",
+        "confidence": 1.0
+    },
+    "date_last_d": {
+        "field_spec": "date_last_d : Date Last Worked (dd)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Date last worked is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_last_m": {
+        "field_spec": "date_last_m : Date Last Worked (mm)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Date last worked is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_last_y": {
+        "field_spec": "date_last_y : Date Last Worked (yyyy)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Date last worked is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_return_d": {
+        "field_spec": "date_return_d : Date Returned to Work or Expected Return to Work Date (dd)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Date returned to work is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_return_m": {
+        "field_spec": "date_return_m : Date Returned to Work or Expected Return to Work Date (mm)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Date returned to work is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_return_y": {
+        "field_spec": "date_return_y : Date Returned to Work or Expected Return to Work Date (yyyy)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Date returned to work is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "medication1": {
+        "field_spec": "medication1 : Name of Medication (1)",
+        "value": "Aspirin",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Aspirin 81 mg once a day"
+            }
+        ],
+        "reasoning": "Medication name is directly available in S1.",
+        "confidence": 1.0
+    },
+    "medication2": {
+        "field_spec": "medication2 : Name of Medication (2)",
+        "value": "Metoprolol",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Metoprolol 25 mg twice daily"
+            }
+        ],
+        "reasoning": "Medication name is directly available in S1.",
+        "confidence": 1.0
+    },
+    "medication3": {
+        "field_spec": "medication3 : Name of Medication (3)",
+        "value": "Nitroglycerin",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Nitroglycerin 0.4 mg sublingual as needed for chest pain"
+            }
+        ],
+        "reasoning": "Medication name is directly available in S1.",
+        "confidence": 1.0
+    },
+    "medication4": {
+        "field_spec": "medication4 : Name of Medication (4)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No fourth medication is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "medication5": {
+        "field_spec": "medication5 : Name of Medication (5)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No fifth medication is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "dose1": {
+        "field_spec": "dose1 : Dosage (mg) (1)",
+        "value": "81",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Aspirin 81 mg once a day"
+            }
+        ],
+        "reasoning": "Dosage is directly available in S1.",
+        "confidence": 1.0
+    },
+    "dose2": {
+        "field_spec": "dose2 : Dosage (mg) (2)",
+        "value": "25",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Metoprolol 25 mg twice daily"
+            }
+        ],
+        "reasoning": "Dosage is directly available in S1.",
+        "confidence": 1.0
+    },
+    "dose3": {
+        "field_spec": "dose3 : Dosage (mg) (3)",
+        "value": "0.4",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Nitroglycerin 0.4 mg sublingual as needed for chest pain"
+            }
+        ],
+        "reasoning": "Dosage is directly available in S1.",
+        "confidence": 1.0
+    },
+    "dose4": {
+        "field_spec": "dose4 : Dosage (mg) (4)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No fourth dosage is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "dose5": {
+        "field_spec": "dose5 : Dosage (mg) (5)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No fifth dosage is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "often1": {
+        "field_spec": "often1 : How Often? (1)",
+        "value": "once a day",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Aspirin 81 mg once a day"
+            }
+        ],
+        "reasoning": "Frequency is directly available in S1.",
+        "confidence": 1.0
+    },
+    "often2": {
+        "field_spec": "often2 : How Often? (2)",
+        "value": "twice daily",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Metoprolol 25 mg twice daily"
+            }
+        ],
+        "reasoning": "Frequency is directly available in S1.",
+        "confidence": 1.0
+    },
+    "often3": {
+        "field_spec": "often3 : How Often? (3)",
+        "value": "as needed",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "Nitroglycerin 0.4 mg sublingual as needed for chest pain"
+            }
+        ],
+        "reasoning": "Frequency is directly available in S1.",
+        "confidence": 1.0
+    },
+    "often4": {
+        "field_spec": "often4 : How Often? (4)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No fourth frequency is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "often5": {
+        "field_spec": "often5 : How Often? (5)",
+        "value": null,
+        "citations": [],
+        "reasoning": "No fifth frequency is mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "height": {
+        "field_spec": "height : Please provide your Height",
+        "value": null,
+        "citations": [],
+        "reasoning": "Height is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "weight": {
+        "field_spec": "weight : Please provide your Weight",
+        "value": null,
+        "citations": [],
+        "reasoning": "Weight is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "hand": {
+        "field_spec": "hand , Dominant Hand: (Options: Left, Right)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Dominant hand is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "company_name": {
+        "field_spec": "company_name : (Insurance Company)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Insurance company name is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "doctor": {
+        "field_spec": "doctor , I am the: (Options: Family Physician, Consulting Specialist, Other (please specify))",
+        "value": null,
+        "citations": [],
+        "reasoning": "The type of doctor completing the form is not specified in the provided documents.",
+        "confidence": 0.0
+    },
+    "doctor_other": {
+        "field_spec": "doctor_other : Other (please specify)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Since the doctor type is not 'Other', this field is null.",
+        "confidence": 0.0
+    },
+    "diagnosis_primary1": {
+        "field_spec": "diagnosis_primary1 : Primary (1)",
+        "value": "stable angina",
+        "citations": [
+            {
+                "source": "S1",
+                "quote": "stable angina"
+            },
+            {
+                "source": "S2",
+                "quote": "Likely stable angina"
+            }
+        ],
+        "reasoning": "The primary diagnosis is likely stable angina, as mentioned in both S1 and S2.",
+        "confidence": 1.0
+    },
+    "diagnosis_primary2": {
+        "field_spec": "diagnosis_primary2 : Primary (2)",
+        "value": "Hypertension",
+        "citations": [
+            {
+                "source": "S2",
+                "quote": "Hypertension"
+            }
+        ],
+        "reasoning": "Hypertension is listed as a diagnosis in S2.",
+        "confidence": 1.0
+    },
+    "diagnosis_secondary1": {
+        "field_spec": "diagnosis_secondary1 : Secondary and/or Complications (1)",
+        "value": "GERD",
+        "citations": [
+            {
+                "source": "S2",
+                "quote": "GERD"
+            }
+        ],
+        "reasoning": "GERD is listed as a diagnosis in S2.",
+        "confidence": 1.0
+    },
+    "diagnosis_secondary2": {
+        "field_spec": "diagnosis_secondary2 : Secondary and/or Complications (2)",
+        "value": "Hyperlipidemia",
+        "citations": [
+            {
+                "source": "S2",
+                "quote": "Hyperlipidemia"
+            }
+        ],
+        "reasoning": "Hyperlipidemia is listed as a diagnosis in S2.",
+        "confidence": 1.0
+    },
+    "date_childbirth_d": {
+        "field_spec": "date_childbirth_d : If Childbirth - Expected or Actual Delivery Date (dd)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Childbirth is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_childbirth_m": {
+        "field_spec": "date_childbirth_m : If Childbirth - Expected or Actual Delivery Date (mm)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Childbirth is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "date_childbirth_y": {
+        "field_spec": "date_childbirth_y : If Childbirth - Expected or Actual Delivery Date (yyyy)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Childbirth is not mentioned in the provided documents.",
+        "confidence": 0.0
+    },
+    "delivery": {
+        "field_spec": "delivery , Delivery (Options: Vaginal, C-Section)",
+        "value": null,
+        "citations": [],
+        "reasoning": "Childbirth is not mentioned in the provided documents.",
+        "confidence": 0.0
+    }
+}
